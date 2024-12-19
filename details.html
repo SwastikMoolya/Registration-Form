@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Details</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eef2f3;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container Styling */
+        .container {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            color: #fff;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        /* Detail Styling */
+        .detail {
+            margin-bottom: 15px;
+            font-size: 20px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .detail {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Details</h1>
+        <div class="detail" id="name"></div>
+        <div class="detail" id="email"></div>
+        <div class="detail" id="phone"></div>
+        <div class="detail" id="dob"></div>
+        <div class="detail" id="gender"></div>
+        <div class="detail" id="address"></div>
+    </div>
+
+    <script>
+        // Retrieve data from localStorage
+        const formData = JSON.parse(localStorage.getItem('formData'));
+
+        if (formData) {
+            // Populate data into elements
+            document.getElementById('name').textContent = `Name: ${formData.name}`;
+            document.getElementById('email').textContent = `Email: ${formData.email}`;
+            document.getElementById('phone').textContent = `Phone: ${formData.phone}`;
+            document.getElementById('dob').textContent = `DOB: ${formData.dob}`;
+            document.getElementById('gender').textContent = `Gender: ${formData.gender}`;
+            document.getElementById('address').textContent = `Address: ${formData.address}`;
+        } else {
+            document.body.innerHTML = '<p style="text-align: center; color: #2c3e50;">No data found. Please fill out the form first.</p>';
+        }
+    </script>
+</body>
+</html>
